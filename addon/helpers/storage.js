@@ -13,8 +13,8 @@ export function decamelize(str) {
   return str.replace(STRING_DECAMELIZE_REGEXP, '$1_$2').toLowerCase();
 }
 
-export function dasherize(str: string): string {
-  return decamelize(key).replace(STRING_DASHERIZE_REGEXP, '-'),
+export function dasherize(str) {
+  return decamelize(str).replace(STRING_DASHERIZE_REGEXP, '-');
 }
 
 
