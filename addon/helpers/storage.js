@@ -1,9 +1,22 @@
 import { assert } from '@ember/debug';
 import EmberObject, { computed, get } from '@ember/object';
 import { getOwner } from '@ember/application';
-import { dasherize } from '@ember/string';
+// import { dasherize } from '@ember/string';
 
 const storage = {};
+
+
+const STRING_DASHERIZE_REGEXP = /[ _]/g;
+const STRING_DECAMELIZE_REGEXP = /([a-z\d])([A-Z])/g;
+
+export function decamelize(str) {
+  return str.replace(STRING_DECAMELIZE_REGEXP, '$1_$2').toLowerCase();
+}
+
+export function dasherize(str: string): string {
+  return decamelize(key).replace(STRING_DASHERIZE_REGEXP, '-'),
+}
+
 
 function tryStorage(name) {
   let nativeStorage;
